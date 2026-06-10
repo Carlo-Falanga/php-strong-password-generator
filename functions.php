@@ -1,8 +1,8 @@
 <?php
 
-function generatePassword($length)
+function generatePassword($length, $characters)
 {
-    $characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*";
+
     $password = "";
 
     for ($i = 0; $i < $length; $i++) {
@@ -15,7 +15,20 @@ function generatePassword($length)
 $password = "";
 
 if (isset($_GET["length"])) {
-    $password = generatePassword($_GET["length"]);
-}
 
-?>
+    $characters = "";
+
+    if (isset($_GET["letters"])) {
+        $characters .= "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+    if (isset($_GET["numbers"])) {
+        $characters .= "0123456789";
+    }
+    if (isset($_GET["symbols"])) {
+        $characters .= "!@#$%&*";
+    }
+
+    if ($characters !== "") {
+        $password = generatePassword($_GET["length"], $characters);
+    }
+}

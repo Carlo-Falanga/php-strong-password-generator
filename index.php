@@ -3,7 +3,7 @@
 session_start();
 include_once("./functions.php");
 
-if (isset($_GET["length"]) && $_GET["length"] !== "") {
+if (isset($_GET["length"]) && $password !== "") {
     $_SESSION["password"] = $password;
     header("Location: ./result.php");
     exit;
