@@ -1,6 +1,14 @@
 <?php
 
-include_once("./functions.php")
+session_start();
+include_once("./functions.php");
+
+if (isset($_GET["length"])){
+    $_SESSION["password"] = $password;
+    header("Location: ./result.php");
+    exit;
+}
+
 
 ?>
 
@@ -15,11 +23,10 @@ include_once("./functions.php")
 
 <body>
     <form method="GET">
+        <label for="number">Insert the password length</label>
         <input type="number" name="length">
-        <button type="submit">Invia</button>
+        <button type="submit">Send</button>
     </form>
-
-    <p><?php echo $password ?></p>
 </body>
 
 </html>
