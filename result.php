@@ -2,6 +2,8 @@
 
 session_start();
 
+$password = $_SESSION["password"];
+
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +28,7 @@ session_start();
         <div class="card">
             <div class="card-body p-4 text-center">
                 <p class="mb-3">La password generata è:</p>
-                <p class="fs-4 fw-bold mb-4"><?php echo $_SESSION["password"] ?></p>
+                <p class="fs-4 fw-bold mb-4"><?php echo $password ?></p>
                 <a href="./index.php" class="btn btn-primary px-4">Genera un'altra password</a>
             </div>
         </div>
