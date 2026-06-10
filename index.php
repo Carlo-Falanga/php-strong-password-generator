@@ -9,7 +9,7 @@ if (isset($_GET["length"]) && $password !== "") {
     exit;
 }
 
-$invalidParams = isset($_GET["length"]) && $_GET["length"] === "";
+$invalidParams = isset($_GET["length"]) && $password === "";
 
 ?>
 
